@@ -18,4 +18,32 @@
   </mat-sidenav-content>
 </mat-sidenav-container>
 
+<mat-toolbar color="primary" class="toolbar">
+  <button mat-icon-button (click)="toggleSidenav()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="app-title">Stellantis iHub</span>
+</mat-toolbar>
 
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" class="sidenav" [(opened)]="isSidenavOpened">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/marketform" routerLinkActive="active-link">
+        <mat-icon>store</mat-icon>
+        <span *ngIf="isSidenavOpened">Market Form</span>
+      </a>
+      <a mat-list-item routerLink="/dma-group" routerLinkActive="active-link">
+        <mat-icon>groups</mat-icon>
+        <span *ngIf="isSidenavOpened">DMA Group</span>
+      </a>
+      <a mat-list-item>
+        <mat-icon>insert_drive_file</mat-icon>
+        <span *ngIf="isSidenavOpened">Static Page</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="sidenav-content">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
