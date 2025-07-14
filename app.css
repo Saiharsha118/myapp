@@ -20,3 +20,42 @@
 mat-toolbar{
     background-color: #007bff;
 }
+
+
+new one
+.sidenav-container {
+  height: 100vh;
+}
+
+.sidenav {
+  width: 240px;
+  background-color: #0d1a2b;
+  color: white;
+}
+
+.sidenav a {
+  color: white;
+}
+
+.sidenav a.active-link {
+  background-color: #1e2f40;
+}
+
+.mat-icon {
+  margin-right: 10px;
+}
+
+.toolbar {
+  background-color: #002B5B;
+  color: white;
+}
+
+.app-title {
+  margin-left: 8px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.sidenav-content {
+  padding: 16px;
+}
