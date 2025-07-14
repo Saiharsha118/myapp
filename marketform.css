@@ -1,0 +1,30 @@
+.form-card {
+  margin: 20px;
+  padding: 20px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.button-group {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+}
+
+.table-card {
+  margin: 20px;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+}
+
+/* .side{
+ border-left: 4px solid blue;
+} */

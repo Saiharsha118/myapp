@@ -1,0 +1,111 @@
+<mat-card class="form-card">
+  <form [formGroup]="marketForm" (ngSubmit)="onSubmit()">
+    <div class="form-grid">
+      <mat-form-field appearance="fill">
+        <mat-label>Market Scope</mat-label>
+        <mat-select formControlName="MarketScope">
+          @for (scope of marketScopes; track scope) {
+            <mat-option [value]="scope">{{ scope }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Market Name</mat-label>
+        <input matInput formControlName="MarketName" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="side">
+        <mat-label>Business Center</mat-label>
+        <mat-select formControlName="BCenter">
+          @for (center of businessCenters; track center) {
+            <mat-option [value]="center">{{ center }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>DMA</mat-label>
+        <mat-select formControlName="DMA">
+          @for (dma of dmas; track dma) {
+            <mat-option [value]="dma">{{ dma }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>State</mat-label>
+        <mat-select formControlName="State">
+          @for (state of states; track state) {
+            <mat-option [value]="state">{{ state }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Focus</mat-label>
+        <input matInput formControlName="Focus" />
+      </mat-form-field>
+    </div>
+
+    <div class="button-group">
+      <button mat-flat-button color="primary" type="submit">
+        {{ editingIndex !== undefined ? 'Update' : 'Add' }}
+      </button>
+      <button mat-stroked-button color="warn" type="button" (click)="clearForm()">
+        Clear
+      </button>
+    </div>
+  </form>
+</mat-card>
+
+<mat-card class="table-card">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z2">
+
+    <ng-container matColumnDef="MarketScope">
+      <th mat-header-cell *matHeaderCellDef> Market Scope </th>
+      <td mat-cell *matCellDef="let element"> {{ element.MarketScope }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="MarketName">
+      <th mat-header-cell *matHeaderCellDef> Market Name </th>
+      <td mat-cell *matCellDef="let element"> {{ element.MarketName }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="BCenter">
+      <th mat-header-cell *matHeaderCellDef> Business Center </th>
+      <td mat-cell *matCellDef="let element"> {{ element.BCenter }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="DMA">
+      <th mat-header-cell *matHeaderCellDef> DMA </th>
+      <td mat-cell *matCellDef="let element"> {{ element.DMA }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="State">
+      <th mat-header-cell *matHeaderCellDef> State </th>
+      <td mat-cell *matCellDef="let element"> {{ element.State }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Focus">
+      <th mat-header-cell *matHeaderCellDef> Focus </th>
+      <td mat-cell *matCellDef="let element"> {{ element.Focus }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="primary" (click)="editEntry(element)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="deleteEntry(element)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</mat-card>
+

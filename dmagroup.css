@@ -1,0 +1,38 @@
+.container {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+mat-form-field {
+  width: 200px;
+}
+
+.buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.table-container {
+  margin-top: 24px;
+}
+
+.full-width-table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
